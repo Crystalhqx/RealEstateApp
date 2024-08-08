@@ -5,6 +5,7 @@ A simple mobile application for users to explore, buy, and sell properties.
 - [Features](#features)
 - [Video and Screenshots](#video-and-screenshots)
 - [Quick Start](#quick-start)
+- [Technologies](#technologies)
 
 ## Features
 - Browse real estate listings
@@ -40,6 +41,13 @@ To get started with the project, follow these steps:
    npm run ios
 
 Then follow the instructions in the terminal and wait to build the app.
+
+## Technologies
+- React Native
+- TypeScript
+- React Navigation
+- Bottom Sheet
+- Axios
 
 ---
 
