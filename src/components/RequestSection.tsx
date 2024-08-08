@@ -1,11 +1,20 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import colors from '../assets/styles/colors';
 
 const RequestSection: React.FC = () => {
   const [tourType, setTourType] = useState<string>('In-person');
   const [selectedDate, setSelectedDate] = useState<string>('Tue Aug 6');
   const [selectedTime, setSelectedTime] = useState<string>('9:00am');
-
+  const navigation = useNavigation();
+  // Mock data
   const dates = [
     'Tue Aug 6',
     'Wed Aug 7',
@@ -45,36 +54,46 @@ const RequestSection: React.FC = () => {
       </View>
 
       <Text style={styles.label}>Select a preferred time</Text>
-      <View style={styles.dateContainer}>
+      <ScrollView
+        horizontal
+        style={styles.dateContainer}
+        showsHorizontalScrollIndicator={false}>
         {dates.map(date => (
           <TouchableOpacity
             key={date}
             style={[
               styles.dateButton,
-              selectedDate === date && styles.selectedDateButton,
+              selectedDate === date && styles.selectedButton,
             ]}
             onPress={() => setSelectedDate(date)}>
             <Text style={styles.dateText}>{date}</Text>
           </TouchableOpacity>
         ))}
-      </View>
+      </ScrollView>
 
-      <View style={styles.timeContainer}>
+      <ScrollView
+        horizontal
+        style={styles.timeContainer}
+        showsHorizontalScrollIndicator={false}>
         {times.map(time => (
           <TouchableOpacity
             key={time}
             style={[
               styles.timeButton,
-              selectedTime === time && styles.selectedTimeButton,
+              selectedTime === time && styles.selectedButton,
             ]}
             onPress={() => setSelectedTime(time)}>
             <Text style={styles.timeText}>{time}</Text>
           </TouchableOpacity>
         ))}
-      </View>
+      </ScrollView>
 
-      <TouchableOpacity style={styles.nextButton}>
-        <Text style={styles.nextButtonText}>Request this time</Text>
+      <TouchableOpacity
+        style={styles.requestButton}
+        onPress={() =>
+          navigation.navigate('Request', {selectedDate, selectedTime})
+        }>
+        <Text style={styles.requestButtonText}>Request this time</Text>
       </TouchableOpacity>
     </View>
   );
@@ -82,7 +101,6 @@ const RequestSection: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
     paddingVertical: 10,
   },
   label: {
@@ -92,73 +110,65 @@ const styles = StyleSheet.create({
   },
   tourTypeContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
   },
   tourTypeButton: {
     flex: 1,
+    marginHorizontal: 3,
     padding: 10,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.gray,
     alignItems: 'center',
   },
   selectedButton: {
-    borderColor: '#0A6847',
+    borderColor: colors.primary,
+    backgroundColor: colors.third,
   },
   buttonText: {
     fontWeight: 'bold',
   },
   dateContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    height: 90,
   },
   dateButton: {
-    flex: 1,
     padding: 10,
     marginHorizontal: 3,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.gray,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  selectedDateButton: {
-    borderColor: '#0A6847',
+    width: 100,
+    height: 80,
   },
   dateText: {
     fontWeight: 'bold',
   },
   timeContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    marginVertical: 10,
+    marginVertical: 20,
   },
   timeButton: {
-    flexBasis: '45%',
     padding: 10,
-    marginVertical: 5,
+    marginHorizontal: 5,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.gray,
     alignItems: 'center',
-  },
-  selectedTimeButton: {
-    borderColor: '#0A6847',
+    width: 100,
   },
   timeText: {
     fontWeight: 'bold',
   },
-  nextButton: {
-    margin: 8,
+  requestButton: {
+    margin: 4,
     padding: 15,
-    backgroundColor: 'black',
+    backgroundColor: colors.primary,
     borderRadius: 5,
     alignItems: 'center',
   },
-  nextButtonText: {
-    color: 'white',
+  requestButtonText: {
+    color: colors.white,
     fontSize: 16,
     fontWeight: 'bold',
   },

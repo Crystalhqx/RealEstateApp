@@ -3,21 +3,25 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabNavigator from './BottomTabNavigator';
 import PropertyDetailsScreen from '../screens/PropertyDetailsScreen';
 import ContactScreen from '../screens/ContactScreen';
-import CommuteScreen from '../screens/CommuteScreen';
+import RequestScreen from '../screens/RequestScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 
 export type RootStackParamList = {
+  Welcome: undefined;
   Main: undefined;
   PropertyDetails: {
-    image: string;
-    address: string;
+    images: string[];
     price: string;
     bedrooms: number;
     bathrooms: number;
     sqft: number;
+    address: string;
+    zipcode: number;
     description: string;
-    keyDetails: string[];
+    keyDetails: {key: string; value: string}[];
   };
-  ContactScreen: undefined;
+  Contact: undefined;
+  Request: {selectedDate: string; selectedTime: string};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +29,11 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const MainStackNavigator = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Welcome"
+        component={WelcomeScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="Main"
         component={BottomTabNavigator}
@@ -36,14 +45,14 @@ const MainStackNavigator = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="ContactScreen"
+        name="Contact"
         component={ContactScreen}
         options={{headerShown: true, title: 'Contact Agent'}}
       />
       <Stack.Screen
-        name="CommuteScreen"
-        component={CommuteScreen}
-        options={{headerShown: false}}
+        name="Request"
+        component={RequestScreen}
+        options={{headerShown: true, title: 'Request a tour'}}
       />
     </Stack.Navigator>
   );

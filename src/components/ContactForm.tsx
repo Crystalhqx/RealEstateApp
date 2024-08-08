@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import colors from '../assets/styles/colors';
 
 const ContactForm: React.FC = () => {
   return (
@@ -31,32 +32,30 @@ const ContactForm: React.FC = () => {
 
 const styles = StyleSheet.create({
   contactContainer: {
-    marginVertical: 10,
-    padding: 15,
+    backgroundColor: colors.white,
   },
   attributeTitle: {
     fontSize: 16,
-    color: '#333',
     marginTop: 10,
     marginBottom: 10,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.gray,
     borderRadius: 5,
     padding: 10,
     marginBottom: 10,
     fontSize: 16,
   },
   sendButton: {
-    backgroundColor: 'black',
+    backgroundColor: colors.primary,
     borderRadius: 5,
     paddingVertical: 15,
     alignItems: 'center',
     marginTop: 15,
   },
   sendButtonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 16,
     fontWeight: 'bold',
   },

@@ -2,18 +2,20 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import colors from '../assets/styles/colors';
 
 type RootStackParamList = {
   Search: undefined;
   PropertyDetails: {
-    image: string;
-    address: string;
+    images: string[];
     price: string;
     bedrooms: number;
     bathrooms: number;
     sqft: number;
+    address: string;
+    zipcode: number;
     description: string;
-    keyDetails: string[];
+    keyDetails: {key: string; value: string}[];
   };
 };
 
@@ -23,23 +25,25 @@ type PropertyCardNavigationProp = NativeStackNavigationProp<
 >;
 
 interface PropertyCardProps {
-  image: string;
+  images: string[];
   price: string;
   bedrooms: number;
   bathrooms: number;
   sqft: number;
   address: string;
+  zipcode: number;
   description: string;
-  keyDetails: string[];
+  keyDetails: {key: string; value: string}[];
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
-  image,
+  images,
   price,
   bedrooms,
   bathrooms,
   sqft,
   address,
+  zipcode,
   description,
   keyDetails,
 }) => {
@@ -47,31 +51,34 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 
   const handlePress = () => {
     navigation.navigate('PropertyDetails', {
-      image,
+      images,
       price,
       bedrooms,
       bathrooms,
       sqft,
       address,
+      zipcode,
       description,
       keyDetails,
     });
   };
 
   return (
-    <TouchableOpacity onPress={handlePress}>
+    <TouchableOpacity onPress={handlePress} style={styles.touchable}>
       <View style={styles.card}>
-        <Image source={{uri: image}} style={styles.image} />
+        <Image source={{uri: images[0]}} style={styles.image} />
         <View style={styles.details}>
           <Text style={styles.price}>{price}</Text>
-          <Text style={styles.description}>
+          <Text style={styles.info}>
             {bedrooms} {bedrooms > 1 ? 'Beds' : 'Bed'}
             {'  ·  '}
             {bathrooms} {bathrooms > 1 ? 'Baths' : 'Bath'}
             {'  ·  '}
             {sqft} {'Sq.Ft.'}
           </Text>
-          <Text style={styles.address}>{address}</Text>
+          <Text style={styles.address}>
+            {address}, {zipcode}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -79,31 +86,36 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 };
 
 const styles = StyleSheet.create({
-  card: {
+  touchable: {
     margin: 10,
-    borderRadius: 13,
+    borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: 'white',
+  },
+  card: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    borderColor: colors.gray,
+    borderWidth: 1,
   },
   image: {
-    width: '100%',
     height: 200,
   },
   details: {
     padding: 15,
   },
   price: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '900',
     marginVertical: 3,
   },
-  description: {
+  info: {
     fontSize: 16,
-    color: 'black',
+    color: colors.black,
     marginVertical: 3,
   },
   address: {
     fontSize: 14,
+    color: colors.darkGray,
     marginVertical: 3,
   },
 });

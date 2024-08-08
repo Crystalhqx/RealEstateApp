@@ -7,6 +7,7 @@ import FeedScreen from '../screens/FeedScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import MyHomeScreen from '../screens/MyHomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import colors from '../assets/styles/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,10 +15,10 @@ const BottomTabNavigator = () => (
   <Tab.Navigator
     initialRouteName="Search"
     screenOptions={{
-      tabBarActiveTintColor: 'red',
+      tabBarActiveTintColor: colors.primary,
     }}>
     <Tab.Screen
-      name="Search"
+      name="Discover"
       component={SearchScreen}
       options={{
         tabBarLabel: 'Search',
