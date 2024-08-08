@@ -1,3 +1,48 @@
+# Real Estate React Native App
+A simple mobile application for users to explore, buy, and sell properties.
+
+## Table of Contents
+- [Features](#features)
+- [Video and Screenshots](#video-and-screenshots)
+- [Quick Start](#quick-start)
+
+## Features
+- Browse real estate listings
+- View detailed property information
+- Contact sellers or agents
+- Reserve dates and times for a tour
+
+## Video and Screenshots
+https://github.com/user-attachments/assets/b026f75b-e468-4f99-9df3-589aa29ef80a
+
+<img src="https://github.com/user-attachments/assets/8058d98b-91d0-4433-bad0-072ea0983fb1" alt="Properties List" width="220" />
+<img src="https://github.com/user-attachments/assets/debc89e7-80af-4a4f-898d-cc79cfe6e637" alt="Details" width="220" />
+<img src="https://github.com/user-attachments/assets/4889a1fb-b51b-4266-b436-377e0a3b0bff" alt="Info" width="220" />
+
+## Quick Start
+
+To get started with the project, follow these steps:
+
+1. **Clone the repository**
+   
+   ```sh
+   git clone https://github.com/Crystalhqx/RealEstateApp.git
+   cd RealEstateApp
+
+2. **Install dependencies**
+
+   ```sh
+   npm install
+
+3. **Run the app**
+   ```sh
+   npx pod-install
+   npm run ios
+
+Then follow the instructions in the terminal and wait to build the app.
+
+---
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
