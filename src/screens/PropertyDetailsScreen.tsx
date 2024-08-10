@@ -73,7 +73,13 @@ const PropertyDetailsScreen: React.FC = () => {
 
       <ScrollView contentContainerStyle={styles.imagesScrollViewContent}>
         {images.map((image, index) => (
-          <Image key={index} source={{uri: image}} style={styles.image} />
+          <TouchableOpacity
+            key={index}
+            onPress={() =>
+              navigation.navigate('Images', {images: images, index: index})
+            }>
+            <Image source={{uri: image}} style={styles.image} />
+          </TouchableOpacity>
         ))}
       </ScrollView>
 

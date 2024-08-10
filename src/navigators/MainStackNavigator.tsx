@@ -5,6 +5,7 @@ import PropertyDetailsScreen from '../screens/PropertyDetailsScreen';
 import ContactScreen from '../screens/ContactScreen';
 import RequestScreen from '../screens/RequestScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
+import ImagesScreen from '../screens/ImagesScreen';
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   };
   Contact: undefined;
   Request: {selectedDate: string; selectedTime: string};
+  Images: {images: string[]; index: number};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -53,6 +55,11 @@ const MainStackNavigator = () => {
         name="Request"
         component={RequestScreen}
         options={{headerShown: true, title: 'Request a tour'}}
+      />
+      <Stack.Screen
+        name="Images"
+        component={ImagesScreen}
+        options={{headerShown: true, title: 'Images'}}
       />
     </Stack.Navigator>
   );
