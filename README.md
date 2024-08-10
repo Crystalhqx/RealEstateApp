@@ -16,10 +16,10 @@ A simple mobile application for users to explore, buy, and sell properties.
 ## Video and Screenshots
 https://github.com/user-attachments/assets/b026f75b-e468-4f99-9df3-589aa29ef80a
 
-<img src="https://github.com/user-attachments/assets/8058d98b-91d0-4433-bad0-072ea0983fb1" alt="Properties List" width="220" />
-<img src="https://github.com/user-attachments/assets/debc89e7-80af-4a4f-898d-cc79cfe6e637" alt="Details" width="220" />
-<img src="https://github.com/user-attachments/assets/4889a1fb-b51b-4266-b436-377e0a3b0bff" alt="Info" width="220" />
-<img src="https://github.com/user-attachments/assets/d27cd389-c3b9-4cb4-b281-3ed50b90eea1" alt="Images" width="220" />
+<img src="https://github.com/user-attachments/assets/8058d98b-91d0-4433-bad0-072ea0983fb1" alt="Properties List" width="200" />
+<img src="https://github.com/user-attachments/assets/debc89e7-80af-4a4f-898d-cc79cfe6e637" alt="Details" width="200" />
+<img src="https://github.com/user-attachments/assets/4889a1fb-b51b-4266-b436-377e0a3b0bff" alt="Info" width="200" />
+<img src="https://github.com/user-attachments/assets/d27cd389-c3b9-4cb4-b281-3ed50b90eea1" alt="Images" width="200" />
 
 ## Quick Start
 
